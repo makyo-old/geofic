@@ -1,17 +1,8 @@
 from django.conf.urls.defaults import *
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
-
 urlpatterns = patterns('',
-    # Example:
-    # (r'^geofic/', include('geofic.foo.urls')),
-
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+    (r'^geo/', include("geofic.geo.urls")),
+    (r'^fic/', include("geofic.fic.urls")),
+    (r'^user/', include("geofic.usermgmt.urls")),
+    (r'^accounts/', include("geofic.usermgmt.account_urls"))
 )

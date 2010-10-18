@@ -3,17 +3,19 @@ from django.contrib.auth.models import User
 from geofic.fic.models import *
 
 class City(models.Model):
-    slug
-    name
-    description
-    point
+    slug = models.SlugField()
+    name = models.CharField(max_length = 100)
+    description = models.TextField()
+    lat = models.FloatField()
+    lon = models.FloatField()
 
 class Location(models.Model):
-    name
-    description
-    city
-    point
+    name = models.CharField(max_length = 100)
+    description = models.TextField()
+    city = models.ForeignKey(City)
+    lat = models.FloatField()
+    lon = models.FloatField()
 
 class Coupon(models.Model):
-    content
-    location
+    content = models.TextField()
+    location = models.ForeignKey(Location)
