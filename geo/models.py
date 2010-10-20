@@ -15,6 +15,7 @@ class Location(models.Model):
     city = models.ForeignKey(City)
     lat = models.FloatField()
     lon = models.FloatField()
+    flagged = models.BooleanField(default = False)
 
 class Coupon(models.Model):
     content = models.TextField()
