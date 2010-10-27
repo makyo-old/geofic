@@ -10,6 +10,7 @@ class City(models.Model):
     lon = models.FloatField()
 
 class Location(models.Model):
+    admin = models.ForeignKey(User)
     name = models.CharField(max_length = 100)
     description = models.TextField()
     city = models.ForeignKey(City)

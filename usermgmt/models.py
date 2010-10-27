@@ -22,7 +22,7 @@ class Profile(models.Model):
             (4, "Other - available")
             )
 
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(User)
     bio = models.TextField(blank = True)
     home_city = models.ForeignKey(City, null = True, related_name = 'residing_participants')
     working_city = models.ForeignKey(City, null = True, related_name = 'working_participants')
@@ -39,6 +39,7 @@ class StoryRun(models.Model):
     start_time = models.DateTimeField(auto_now_add = True)
     end_time = models.DateTimeField(null = True)
     valid = models.BooleanField()
+    active = models.BooleanField(default = True)
 
 class CompletedChapter(models.Model):
     chapter = models.ForeignKey(Chapter)
