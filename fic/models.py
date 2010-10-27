@@ -26,6 +26,7 @@ class Story(models.Model):
     city = models.ForeignKey(City)
     ctime = models.DateTimeField(auto_now_add = True)
     distance = models.FloatField(null = True)
+    complete = models.BooleanField(default = True)
     transportation_type = models.IntegerField(choices = transportation_choices)
 
 class Chapter(models.Model):
